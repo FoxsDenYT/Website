@@ -130,14 +130,12 @@
       
       function displaySubBox(){
         win = createPopupWin('http://youtube.com/@FoxsDen?sub_confirmation=1', 'Subscribe to @FoxsDen', 270, 270);
-        windowIsShowing = true;
+         var jqwin = $(win);
+          $(jqwin).blur(function() {
+            this.close();
+         });
       }
-      
-     document.addEventListener("focus", function (){
-      if(windowIsShowing){
-        win.close()
-      }
-     })
+     
     </script>
   </body>
 </html>
