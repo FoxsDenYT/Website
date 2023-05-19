@@ -109,13 +109,15 @@
     <h1>Hey!</h1>
     <p class="lead">I'm Fox, the crazy person behind Fox's Den!<br>Welcome to my site!</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-danger fw-bold" onclick="createPopupWin('http://youtube.com/@FoxsDen?sub_confirmation=1', 'Subscribe to @FoxsDen', 270, 270)">Subscribe</a>
+      <a href="#" class="btn btn-lg btn-danger fw-bold" onclick="">Subscribe</a>
     </p>
   </main>
   <footer class="mt-auto text-white-50">
   </footer>
 </div>
     <script>
+      var win;
+      var windowIsShowing;
       function createPopupWin(pageURL, pageTitle, popupWinWidth, popupWinHeight) {
             var left = (screen.width ) ;
             var top = (screen.height ) ;
@@ -123,7 +125,19 @@
                     'resizable=yes, width=' + popupWinWidth
                     + ', height=' + popupWinHeight + ', top='
                     + top + ', left=' + left);
+          return myWindow;
         }
+      
+      function displaySubBox(){
+        win = createPopupWin('http://youtube.com/@FoxsDen?sub_confirmation=1', 'Subscribe to @FoxsDen', 270, 270);
+        windowIsShowing = true;
+      }
+      
+     document.addEventListener("focus", function (){
+      if(windowIsShowing){
+        win.close()
+      }
+     })
     </script>
   </body>
 </html>
