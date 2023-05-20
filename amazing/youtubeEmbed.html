@@ -167,13 +167,15 @@
                 document.getElementById("results").innerHTML = ""
                 result = JSON.parse(result)
                 for(i of result){
-                    console.log("Title: "+i.title)
-                    console.log("Authon: "+i.author)
-                    console.log("URL: http://invidious.sethforprivacy.com/latest_version?id="+i.videoId+"&itag=18&local=true")
-                    li = document.createElement("li")
-                    li.classList = ["card card-content card-mv-lft"]
-                    li.innerHTML = "<button onclick='changeAudio(`https://invidious.sethforprivacy.com/embed/"+i.videoId+"?controls=1&player_style=youtube`,`"+i.title+" - "+i.author+"`)'><img src='"+i.videoThumbnails[0].url+"' height='100px'><h5>"+i.title+"</h5><h6>"+i.author+"</h6></button>"
-                    document.getElementById("results").appendChild(li);
+                    if(i.type == "video"){
+                        console.log("Title: "+i.title)
+                        console.log("Authon: "+i.author)
+                        console.log("URL: http://invidious.sethforprivacy.com/latest_version?id="+i.videoId+"&itag=18&local=true")
+                        li = document.createElement("li")
+                        li.classList = ["card card-content card-mv-lft"]
+                        li.innerHTML = "<button onclick='changeAudio(`https://invidious.sethforprivacy.com/embed/"+i.videoId+"?controls=1&player_style=youtube`,`"+i.title+" - "+i.author+"`)'><img src='"+i.videoThumbnails[0].url+"' height='100px'><h5>"+i.title+"</h5><h6>"+i.author+"</h6></button>"
+                        document.getElementById("results").appendChild(li);
+                    }
               }
             }
         }
