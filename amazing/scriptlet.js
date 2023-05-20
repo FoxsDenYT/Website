@@ -17,7 +17,7 @@ if(window.localStorage.allowed == "nope"){
             window.location.href = "about:blank"
         }
         if(window.localStorage.getItem("key") == "112342"){
-                if(!window.location.href.endsWith("invidious.html")){
+                if(!window.location.href.endsWith(".nor.html")){
                         window.location.href = "./invidious.html"
                 }
             
