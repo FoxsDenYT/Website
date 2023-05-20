@@ -1,4 +1,4 @@
-        if(localStorage.getItem("allowed") != "nope"){
+        if(localStorage.getItem("allowed") == "nope"){
             alert("Seeya looser! Hah!")
             localStorage.allowed = "nope"
             localStorage.key = "User tried to access lol."
