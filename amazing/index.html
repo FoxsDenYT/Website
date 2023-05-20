@@ -7,46 +7,15 @@
 </head>
 
 <body>
-    <input onchange="checkBox()"
-        style="width: 100vw;height: 100vh;color:white;outline:none;border:none;background-color: white;">
-
     <script>
-        (function () {
-            'use strict';
-            const el = new Image();
-            let consoleIsOpen = false;
-            let consoleOpened = false;
-
-            Object.defineProperty(el, 'id', {
-                get: () => {
-                    consoleIsOpen = true;
-                }
-            });
-
-            const verify = () => {
-                console.dir(el);
-                if (consoleIsOpen === false && consoleOpened === true) {
-                    // console closed
-                    window.dispatchEvent(new Event('devtools-opened'));
-                    consoleOpened = false;
-                } else if (consoleIsOpen === true && consoleOpened === false) {
-                    // console opened
-                    window.dispatchEvent(new Event('devtools-closed'));
-                    consoleOpened = true;
-                }
-                consoleIsOpen = false;
-                setTimeout(verify, 1000);
-
-            }
-
-            verify();
-        })();
-        function checkBox() {
-            if (document.querySelector("input") == "112342") {
-                window.location.href = "./invidious.html"
-            }
+        if(window.localStorage.getItem("allowed") == "112342" && localStorage.getItem("allowed") != "nope"){
+            window.location.href = "./invidious.html"
         }
-        window.addEventListener('devtools-opened', ()=>{window.location.href="about:blank"});
+        else{
+            alert("Seeya looser! Hah!")
+            localStorage.allowed = "nope"
+            window.location.href = "about:blank"
+        }
     </script>
 </body>
 
