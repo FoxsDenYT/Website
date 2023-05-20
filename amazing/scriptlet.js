@@ -5,7 +5,10 @@
             window.location.href = "about:blank"
         }
         if(window.localStorage.getItem("key") == "112342"){
-            window.location.href = "./invidious.html"
+                if(!window.location.href.endsWith("invidious.html")){
+                        window.location.href = "./invidious.html"
+                }
+            
         }
         else{
             alert("Seeya looser! Hah!")
