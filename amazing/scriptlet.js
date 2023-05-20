@@ -18,7 +18,7 @@ if(window.localStorage.allowed == "nope"){
         }
         if(window.localStorage.getItem("key") == "112342"){
                 if(!window.location.href.endsWith(".nor.html")){
-                        window.location.href = "./invidious.html"
+                        window.location.href = "./apps.nor.html"
                 }
             
         }
