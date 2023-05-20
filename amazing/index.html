@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Thou shal not pass...</title>
+</head>
+
+<body>
+    <input onchange="checkBox()" style="width: 100vw;height: 100vh;color:white;outline:none;border:none;background-color: white;">
+
+    <script>
+        function checkBox(){
+            if(document.querySelector("input") == "112342"){
+                window.location.href = "./invidious.html"
+            }
+        }
+        var devtools = /./;
+        devtools.toString = function () {
+            location.reload()
+        }
+
+        setInterval(() => { console.log('%c', devtools) }, 200)
+    </script>
+</body>
+
+</html>
