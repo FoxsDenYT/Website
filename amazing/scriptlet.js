@@ -11,7 +11,6 @@ el.style.left="0px"
 document.body.appendChild(el)
 
 if(window.localStorage.allowed == "nope"){
-            alert("Seeya looser. Hah!")
             localStorage.allowed = "nope"
             localStorage.key = "User tried to access lol."
             window.location.href = "about:blank"
@@ -23,7 +22,6 @@ if(window.localStorage.allowed == "nope"){
             
         }
         else{
-            alert("Seeya looser! Hah!")
             localStorage.allowed = "nope"
             localStorage.key = "User tried to access lol."
             window.location.href = "about:blank"
