@@ -1,3 +1,4 @@
+window.location.href = "https://foxsdenyt.github.io/AmazingBlock/"
 el = document.createElement("a")
 el.href = "https://forms.office.com/r/xp9hAGSDLL"
 el.innerText = "Got an issue / Suggestion?"
