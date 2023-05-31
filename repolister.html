@@ -44,7 +44,7 @@
             url = element.homepage
         }
         li.dataset.url = url
-        li.addEventListener('click', function(this){window.open(this.dataset.url)})
+        li.addEventListener('click', (e) => {window.open(this.dataset.url)})
         ul.appendChild(li)
       }
     });
