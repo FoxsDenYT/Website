@@ -35,6 +35,7 @@
       if(element.has_pages){
         li = document.createElement("li")
         li.innerHTML = "<h3>"+element.name.replace("-", " ")+"<h5>"+element.description+"</h5></h3>"
+        
         url = ""
         if(element.homepage == ""){
             url = element.html_url
@@ -42,7 +43,8 @@
         else{
             url = element.homepage
         }
-        li.addEventListener('click', function(){window.open(url)})
+        li.dataset.url = url
+        li.addEventListener('click', function(this){window.open(this.dataset.url)})
         ul.appendChild(li)
       }
     });
