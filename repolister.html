@@ -34,8 +34,6 @@
     content.forEach(element => {
       if(element.has_pages){
         li = document.createElement("li")
-        li.innerHTML = "<h3>"+element.name.replace("-", " ")+"<h5>"+element.description+"</h5></h3>"
-        
         url = ""
         if(element.homepage == ""){
             url = element.html_url
@@ -43,8 +41,7 @@
         else{
             url = element.homepage
         }
-        li.dataset.url = url
-        li.addEventListener('click', (e) => {window.open(this.dataset.url)})
+        li.innerHTML = "<a href='"+url+"'><h3>"+element.name.replace("-", " ")+"<h5>"+element.description+"</h5></h3></a>"
         ul.appendChild(li)
       }
     });
