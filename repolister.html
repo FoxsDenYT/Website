@@ -49,7 +49,7 @@ img:hover {
       if(element.has_pages){
         li = document.createElement("li")
         url = ""
-        if(element.homepage == ""){
+        if(element.homepage == null){
             url = element.html_url
         }
         else{
