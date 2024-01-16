@@ -70,3 +70,7 @@ badge[nb]{
     display: inline-block;
   }
 }
+html,body,center {
+    width: fit-content;
+    min-width: 100vw;
+}
