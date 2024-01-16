@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <title>Gh-pages Lister</title>
+</head>
+
+<body>
+    <style>
+        #listofprojects > li{
+            cursor: pointer;
+            color: white;
+            line-height: 10%;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        #listofprojects{
+            list-style:none;
+        }
+      img {
+    width: 70vw;
+    padding: 10px;
+    border-radius: 25px;
+    /* transition: auto; */
+    transition: width 0.1s ease-in-out;
+}
+
+img:hover {
+    width: 75vw;
+    padding: 10px;
+    border-radius: 25px;
+    transition: width 0.1s ease-in-out;
+}
+    </style>
+  <ul id="listofprojects"></ul>
+  <script>
+    function getResponseText(url) {
+      // create a new XMLHttpRequest object
+      var xhr = new XMLHttpRequest();
+      // open a GET request to the url
+      xhr.open("GET", url, false);
+      // send the request
+      xhr.send();
+      // return the response text
+      return xhr.responseText;
+    }
+    ul = document.querySelector("#listofprojects")
+    content = JSON.parse(getResponseText("https://api.github.com/users/foxsdenyt/repos"))
+    content.forEach(element => {
+      if(element.has_pages){
+        li = document.createElement("li")
+        url = ""
+        if(element.homepage == null){
+            url = element.html_url
+        }
+        else{
+            url = element.homepage
+        }
+        url = element.html_url
+        li.innerHTML = "<a target=_blank href='"+url+"'><img src='https://opengraph.githubassets.com/hash/FoxsDenYT/"+element.name+"'></a>"
+        ul.appendChild(li)
+      }
+    });
+  </script>
+</body>
+
+</html>

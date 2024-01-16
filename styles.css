@@ -1,0 +1,66 @@
+:root{
+	--fore: #FEFEFE;
+	--2nd: #0E0E0E;	
+}
+body, html{
+	background:var(--2nd);
+	color:var(--fore) !important;
+	font-family:monospace;
+	margin:0px;
+	padding:0px;
+	font-size:large;
+}
+linkbtn{
+	background:var(--2nd);
+	font:monospace;
+	color:var(--fore);
+	transition: all 0.1s ease-in-out;
+	padding:2px;
+	margin-left:unset;
+	margin-right:unset;
+	margin-top:3px;
+	margin-bottom:3px;
+	display:inline-block;
+}
+linkbtn:hover, linkbtn:focus{
+	background:var(--fore);
+	color:var(--2nd);
+	padding:5px;
+	margin:unset;
+	margin-left:2px;
+	margin-right:2px;
+	text-decoration:underline;
+	font-weight:bold;
+}
+linkbtn[big]{
+	font-size:x-large !important;
+}
+header{
+	text-align:center;
+	width:calc(100% - 10px - 20px - 5px);
+	margin:5px;
+	border: var(--fore) 2px solid;
+	padding:10px;
+	font-size:x-large;
+}
+#pfp {
+  transition: transform 0.5s ease-in-out;
+}
+
+.rotate {
+  transform: rotate(360deg);
+}
+
+badge{
+	padding:5px;
+	border-radius:5px;
+}
+badge[purple]{
+	background:rgba(172,69,189, 0.5)
+}
+badge[orange]{
+	background:rgba(255,96,9,0.5)
+}
+badge[nb]{
+	background:rgba(128,0,128,0.5)
+}

@@ -1,0 +1,90 @@
+		for (let el of document.querySelectorAll("linkbtn")) {
+		   	el.setAttribute("tabindex", "0")
+		}
+		document.querySelector("linkbtn").focus()
+	    document.body.addEventListener('keydown', function(event) {
+	        var focusedElement = document.activeElement;
+	
+	        if (focusedElement.tagName.toLowerCase() === 'linkbtn') {
+	        	console.log(event.key);
+	            switch(event.key) {
+	                case 'ArrowUp':
+	                    navigate('up');
+	                    break;
+	                case 'ArrowDown':
+	                    navigate('down');
+	                    break;
+	                case 'ArrowLeft':
+	                    navigate('left');
+	                    break;
+	                case 'ArrowRight':
+	                    navigate('right');
+	                    break;
+	                case 'Enter':
+	                	focusedElement.click()
+	                case ' ':
+	                	focusedElement.click()
+	                default:
+	                    break;
+	            }
+	        }
+	    });
+	
+	    function navigate(direction) {
+	        var linkbtns = document.querySelectorAll('linkbtn');
+	        var focusedElement = document.activeElement;
+	        var currentIndex = Array.from(linkbtns).indexOf(focusedElement);
+	
+	        // Calculate the total number of rows and columns dynamically
+	        var itemsPerRow = Math.floor(window.innerWidth / (focusedElement.offsetWidth + 10)); // 10 is the margin
+	        var totalRows = Math.ceil(linkbtns.length / itemsPerRow);
+	
+	        var currentRow = Math.floor(currentIndex / itemsPerRow);
+	        var currentColumn = currentIndex % itemsPerRow;
+	
+	        switch(direction) {
+	            case 'up':
+	                if (currentRow > 0) {
+	                    var newIndex = currentIndex - itemsPerRow;
+	                    linkbtns[newIndex].focus();
+	                }
+	                break;
+	            case 'down':
+	                if (currentRow < totalRows - 1) {
+	                    var newIndex = currentIndex + itemsPerRow;
+	                    linkbtns[newIndex].focus();
+	                }
+	                break;
+	            case 'left':
+	                if (currentColumn > 0) {
+	                    var newIndex = currentIndex - 1;
+	                    linkbtns[newIndex].focus();
+	                } else if (currentRow > 0) {
+	                    var newIndex = currentIndex - itemsPerRow + itemsPerRow - 1;
+	                    linkbtns[newIndex].focus();
+	                }
+	                break;
+	            case 'right':
+	           		console.log(currentIndex)
+	           		console.log(linkbtns)
+	                if (currentColumn < itemsPerRow - 1 && currentIndex < linkbtns.length) {
+	                    var newIndex = currentIndex + 1;
+	                    linkbtns[newIndex].focus();
+	                } else if (currentRow < totalRows - 1 && currentIndex < linkbtns.length) {
+	                    var newIndex = currentIndex + itemsPerRow - itemsPerRow + 1;
+	                    linkbtns[newIndex].focus();
+	                }
+	                break;
+	            default:
+	                break;
+	        }
+	    }
+	
+	    function handleClick() {
+	        alert('Linkbtn clicked!');
+	    }
+	
+	    window.addEventListener('resize', function() {
+	        var linkbtns = document.querySelectorAll('linkbtn');
+	        linkbtns[0].focus();
+	    });
