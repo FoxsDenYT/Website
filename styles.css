@@ -54,6 +54,7 @@ header{
 badge{
 	padding:5px;
 	border-radius:5px;
+ display:inline-block;
 }
 badge[purple]{
 	background:rgba(172,69,189, 0.5)
